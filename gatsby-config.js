@@ -21,6 +21,26 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-catch-links`,
     {
+      resolve: "gatsby-source-google-spreadsheet",
+      options: {
+        spreadsheetId: "1FclXP69w6vN51QOEmrU_1IaIkPz0Z5EyLhajO0LDk80",
+        spreadsheetName: "Playbooks",
+        typePrefix: "GoogleSpreadsheet",
+        credentials: require(`./credentials.json`),
+        // Simple node transformation during node sourcing can be achieved by implementing the following functions
+        // - `filterNode`
+        // - `mapNode`
+        //
+        // By implementing a `filterNode(node): boolean` function, you can choose to eliminate some nodes before
+        // they're added to Gatsby, the default behaviour is to include all nodes:
+        filterNode: () => true,
+    
+        // By implementing a `mapNode(node): node` function, you can provide your own node transformations directly
+        // during node sourcing, the default implementation is to return the node as is:
+        mapNode: node => node
+      }
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,

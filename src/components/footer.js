@@ -1,5 +1,4 @@
 import React from "react"
-import Navbar from 'react-bootstrap/Navbar'
 
 const Footer = (props) => (
   <div style={{"text-align": "center"}}>

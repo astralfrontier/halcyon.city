@@ -12,7 +12,7 @@ const Header = ({ siteTitle }) => (
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="justify-content-end">
         <Nav.Item>
-          <Nav.Link href="https://twitter.com/astralfrontier">Twitter</Nav.Link>
+          <Nav.Link href="/playbooks">Playbooks</Nav.Link>
         </Nav.Item>
       </Nav>
     </Navbar.Collapse>
