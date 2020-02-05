@@ -18,7 +18,7 @@ const IndexPage = (props) => (
       <tbody>
         {props.data.allGoogleSpreadsheetPlaybooksPlaybooks.nodes.map(({playbook, characterInspiration, author__discordId_, link}) => (
           <tr>
-            <td><a href={link}>{playbook}</a></td>
+            <td><a href={link} rel="noopener noreferrer nofollow" target="_blank">{playbook}</a></td>
             <td>{author__discordId_}</td>
             <td>{characterInspiration}</td>
           </tr>
