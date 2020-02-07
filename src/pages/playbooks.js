@@ -32,7 +32,7 @@ export default IndexPage
 
 export const pageQuery  = graphql`
 query Playbooks {
-  allGoogleSpreadsheetPlaybooksPlaybooks {
+  allGoogleSpreadsheetPlaybooksPlaybooks(sort: {fields: playbook, order: ASC}) {
     nodes {
       author__discordId_
       characterInspiration
