@@ -13,11 +13,10 @@ jobs:
       with:
         node-version: '12.x'
     - run: npm ci
-    - run: npm run create-credentials
+    - name: Decrypt large secret
+      run: ./.github/scripts/decrypt_secret.sh
       env:
-        GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
-        GOOGLE_PRIVATE_KEY: ${{ secrets.GOOGLE_PRIVATE_KEY }}
-        GOOGLE_PRIVATE_KEY_ID: ${{ secrets.GOOGLE_PRIVATE_KEY_ID }}
+        CREDENTIALS_PASSPHRASE: ${{ secrets.CREDENTIALS_PASSPHRASE }}
     - run: npm run build -- --prefix-paths
     - uses: jakejarvis/s3-sync-action@master
       with:
