@@ -10,10 +10,10 @@ export default function Template({
   data, // this prop will be injected by the GraphQL query below.
 }) {
   const { markdownRemark } = data // data.markdownRemark holds your post data
-  const { frontmatter, html } = markdownRemark
+  const { frontmatter: {title, description}, html } = markdownRemark
   return (
     <Layout>
-      <SEO title={frontmatter.title} />
+      <SEO title={title} description={description} />
       <Container>
         <Row>
           <Col>
@@ -35,6 +35,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         path
         title
+        description
       }
     }
   }
