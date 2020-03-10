@@ -2,12 +2,21 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const IndexPage = (props) => (
+import Button from "react-bootstrap/Button"
+import Jumbotron from "react-bootstrap/Jumbotron"
+
+const IndexPage = props => (
   <Layout>
     <SEO title="Home" />
-    <p>
-      Site coming soon
-    </p>
+    <Jumbotron>
+      <h1>Custom Playbooks</h1>
+      <p>
+        Links to custom playbooks, auto-generated from the Masks Discord spreadsheet.
+      </p>
+      <p>
+        <Button href="/playbooks" variant="primary">Playbooks</Button>
+      </p>
+    </Jumbotron>
   </Layout>
 )
 
