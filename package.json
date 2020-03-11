@@ -24,6 +24,7 @@
     "gatsby-transformer-sharp": "^2.3.13",
     "netlify-cms-app": "^2.11.14",
     "prop-types": "^15.7.2",
+    "ramda": "^0.27.0",
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.12.0",
@@ -31,6 +32,7 @@
   },
   "devDependencies": {
     "@types/node": "^13.9.0",
+    "@types/ramda": "^0.26.43",
     "@types/react": "^16.9.23",
     "@types/react-dom": "^16.9.5",
     "prettier": "^1.19.1",
