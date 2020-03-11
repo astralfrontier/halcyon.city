@@ -1,6 +1,8 @@
-import React, { FunctionComponent } from "react"
+import React, { FunctionComponent, useEffect, useState } from "react"
 
-import {range, find, includes} from "ramda";
+import {range, find, includes, map} from "ramda";
+
+import ClassmateTable from './table'
 
 // Roll a die at random
 const oneDie = (size: number) => Math.floor(Math.random() * size + 1);
@@ -28,23 +30,34 @@ const skillTable = [
 
 const focusTable = [
   [range(2, 6), "scholastics"],
-  [range(6, 9), "sports or extracurriculars"],
+  [range(6, 9), "sports or clubs"],
   [range(9, 13), "socializing"],
 ]
 
-const npc = (modifier: number = 0) => <span>
-  This NPC is a{' '}
-  <strong>{rollOnTable(relationshipTable, modifier)}</strong>{' '}
-  who is{' '}
-  <strong>{rollOnTable(skillTable, modifier)}</strong>{' '}
-  at{' '}
-  <strong>{rollOnTable(focusTable, modifier)}</strong>{' '}
-</span>
+const npc = (modifier: number = 0) => `A ${rollOnTable(relationshipTable, modifier)} who is ${rollOnTable(skillTable, modifier)} at ${rollOnTable(focusTable, modifier)}`
+
+const CLASSROOM_ROWS = 4
+const CLASSROOM_COLS = 4
 
 const ClassmateGeneratorClient: FunctionComponent = () => {
+  const [classmateData, setClassmateData] = useState([])
+
+  useEffect(() => {
+    async function fetchData() {
+      const raw = await fetch(`https://uinames.com/api/?amount=${CLASSROOM_COLS * CLASSROOM_ROWS}`)
+      const data: object[] = await raw.json()
+      const classmates = map(nameData => ({
+        name: `${nameData['name']} ${nameData['surname']}`,
+        desc: npc()
+      }), data)
+      setClassmateData(classmates)
+    }
+    fetchData().catch(e => window.alert(e.message))
+  }, [])
+
   return (
     <div>
-      <p>{npc(0)}</p>
+      <ClassmateTable width={CLASSROOM_COLS} classmates={classmateData} />
     </div>
   )
 }
