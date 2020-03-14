@@ -4,6 +4,14 @@ import Table from "react-bootstrap/Table"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+import URI from 'urijs'
+
+const playbookLink = link => {
+  let foundUrl = link;
+  URI.withinString(link, url => (foundUrl = url));
+  return foundUrl;
+}
+
 const IndexPage = (props) => (
   <Layout>
     <SEO title="Playbooks" />
@@ -18,7 +26,7 @@ const IndexPage = (props) => (
       <tbody>
         {props.data.allGoogleSpreadsheetPlaybooksPlaybooks.nodes.map(({playbook, link, author__discordId_, characterInspiration}) => (
           <tr>
-            <td><a href={link} rel="noopener noreferrer nofollow" target="_blank">{playbook}</a></td>
+            <td><a href={playbookLink(link)} rel="noopener noreferrer nofollow" target="_blank">{playbook}</a></td>
             <td>{author__discordId_}</td>
             <td>{characterInspiration}</td>
           </tr>
