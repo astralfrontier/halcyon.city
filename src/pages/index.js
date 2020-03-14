@@ -13,7 +13,7 @@ const IndexPage = props => (
     <SEO title="Home" />
     <Container fluid>
       <Row>
-        <Col xs={6}>
+        <Col>
           <Jumbotron>
             <h1>Classmate Generator</h1>
             <p>
@@ -26,7 +26,7 @@ const IndexPage = props => (
             </p>
           </Jumbotron>
         </Col>
-        <Col xs={6}>
+        <Col>
           <Jumbotron>
             <h1>Custom Playbooks</h1>
             <p>
