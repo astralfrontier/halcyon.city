@@ -7,3 +7,28 @@ blockquote {
   font-style: italic;
   padding-left: 0.5em;
 }
+
+li.specialchar {
+  list-style-type:none;
+  padding-left: 16px;
+  position: relative;
+}
+
+li.specialchar:before {
+  font-weight:bold;
+  font-size:16px;
+  text-align:right;
+  padding-right:6px;
+  width:10px;
+  position: absolute;
+  left: 0;
+  /* top: -0.2em; */
+}
+
+li.condition:before {
+  content: "\2610";
+}
+
+li.move:before {
+  content: "\00BB";
+}
