@@ -2,7 +2,7 @@
   "name": "halcyon.city",
   "private": true,
   "description": "A static site for tracking Masks content",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Bill Garrett <garrett@astralfrontier.org>",
   "dependencies": {
     "@loadable/component": "^5.12.0",
